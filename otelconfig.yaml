@@ -2,15 +2,10 @@ receivers:
   cloudfoundry:
     rlp_gateway:
       endpoint: ${RLP_GATEWAY_ENDPOINT}
-      shard_id: ${RLP_GATEWAY_SHARD_ID}
-      tls:
-        insecure_skip_verify: ${RLP_GATEWAY_TLS_INSECURE:false}
     uaa:
       endpoint: ${UAA_ENDPOINT}
       client_id: ${UAA_CLIENT_ID}
       client_secret: ${UAA_CLIENT_SECRET}
-      tls:
-        insecure_skip_verify: ${UAA_TLS_INSECURE:false}
 
 processors:
   resourcedetection:
