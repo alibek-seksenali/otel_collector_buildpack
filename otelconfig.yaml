@@ -1,4 +1,8 @@
 extensions:
+  basicauth/client:
+    client_auth:
+      username: ${UAA_CLIENT_ID}
+      password: ${UAA_CLIENT_SECRET}
   oauth2client:
     client_id: ${UAA_CLIENT_ID}
     client_secret: ${UAA_CLIENT_SECRET}
@@ -27,7 +31,7 @@ exporters:
     ingest_url: ${SPLUNK_INGEST_URL}
 
 service:
-  extensions: [oauth2client]
+  extensions: [basicauth/client]
   pipelines:
     metrics:
       receivers: [cloudfoundry]
