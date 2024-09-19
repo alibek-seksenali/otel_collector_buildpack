@@ -32,7 +32,3 @@ service:
       receivers: [cloudfoundry]
       processors: [resourcedetection]
       exporters: [signalfx]
-    traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [signalfx]
