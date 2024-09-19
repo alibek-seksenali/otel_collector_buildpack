@@ -18,6 +18,13 @@ exporters:
     api_url: ${SPLUNK_API_URL}
     ingest_url: ${SPLUNK_INGEST_URL}
 
+extensions:
+  oauth2client:
+    client_id: ${UAA_CLIENT_ID}
+    client_secret: ${UAA_CLIENT_SECRET}
+    token_url: ${UAA_TOKEN_URL}
+    timeout: 10s
+
 service:
   extensions: [oauth2client]
   pipelines:
@@ -29,10 +36,3 @@ service:
       receivers: [otlp]
       processors: [batch]
       exporters: [signalfx]
-
-extensions:
-  oauth2client:
-    client_id: ${UAA_CLIENT_ID}
-    client_secret: ${UAA_CLIENT_SECRET}
-    token_url: ${UAA_TOKEN_URL}
-    timeout: 10s
