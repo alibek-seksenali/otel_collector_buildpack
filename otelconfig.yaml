@@ -12,9 +12,7 @@ receivers:
     rlp_gateway:
       endpoint: ${RLP_GATEWAY_ENDPOINT}
     uaa:
-      endpoint: ${UAA_ENDPOINT}
-      client_id: ${UAA_CLIENT_ID}
-      client_secret: ${UAA_CLIENT_SECRET}
+      password: ${UAA_PASSWORD}
 
 processors:
   resourcedetection:
