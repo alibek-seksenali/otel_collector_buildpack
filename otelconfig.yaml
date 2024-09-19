@@ -12,6 +12,7 @@ receivers:
     rlp_gateway:
       endpoint: ${RLP_GATEWAY_ENDPOINT}
     uaa:
+      url: ${UAA_TOKEN_URL}
       password: ${UAA_PASSWORD}
 
 processors:
