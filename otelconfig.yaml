@@ -1,10 +1,18 @@
+extensions:
+  oauth2client:
+    client_id: ${UAA_CLIENT_ID}
+    client_secret: ${UAA_CLIENT_SECRET}
+    token_url: ${UAA_TOKEN_URL}
+    tls:
+      insecure: true
+    timeout: 2s
+
 receivers:
   cloudfoundry:
     rlp_gateway:
       endpoint: ${RLP_GATEWAY_ENDPOINT}
     uaa:
       endpoint: ${UAA_TOKEN_URL}
-      username: ${UAA_CLIENT_ID}
       password: ${UAA_CLIENT_SECRET}
 
 processors:
@@ -19,6 +27,7 @@ exporters:
     ingest_url: ${SPLUNK_INGEST_URL}
 
 service:
+  extensions: [oauth2client]
   pipelines:
     metrics:
       receivers: [cloudfoundry]
